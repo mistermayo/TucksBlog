@@ -2,18 +2,20 @@ require 'rails_helper'
 
 describe "the add a comment process" do
   it "adds a new comment" do
-    visit posts_path
-    click_on 'Add a new comment'
-    fill_in 'Description', :with => 'Capybara is rough times'
-    click_on 'Submit Your Post'
-    expect(page).to have_content 'Posts'
+    post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
+    visit post_path(post)
+    click_on "Add a comment"
+    fill_in 'Description', :with => 'Hello'
+    click_on 'Create Comment'
+    expect(page).to have_content 'Hello'
   end
 
-  it "gives error when no name is entered" do
-    visit root_path
-    click_on 'Add a new comment'
-    fill_in 'Title', :with => ''
-    click_on 'Submit Your Post'
+  it "gives error when no description is entered" do
+    post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
+    visit post_path(post)
+    click_on "Add a comment"
+    fill_in 'Description', :with => ''
+    click_on 'Create Comment'
     expect(page).to have_content 'errors'
   end
 end
