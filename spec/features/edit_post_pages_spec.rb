@@ -2,11 +2,22 @@ require 'rails_helper'
 
 describe "the edit a post process" do
 
-  it "gives error when no title and body is entered" do
+  it "gives error when no title is entered" do
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on 'Edit'
     fill_in 'Title', :with => ''
+    fill_in 'Body', :with => 'rowdy licorice'
+    fill_in 'Date', :with => ''
+    click_on 'Submit Your Post'
+    expect(page).to have_content 'errors'
+  end
+
+  it "gives error when no body is entered" do
+    post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
+    visit post_path(post)
+    click_on 'Edit'
+    fill_in 'Title', :with => 'rowdy licoricia'
     fill_in 'Body', :with => ''
     fill_in 'Date', :with => ''
     click_on 'Submit Your Post'
@@ -24,4 +35,10 @@ describe "the edit a post process" do
     expect(page).to have_content 'Knitting and Kama Sutra'
   end
 
+  it "takes you to an edit post page" do
+    post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
+    visit post_path(post)
+    click_on 'Edit'
+    expect(page).to have_content 'Edit'
+  end
 end

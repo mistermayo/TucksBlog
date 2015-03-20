@@ -1,6 +1,6 @@
-# require 'rails_helper'
-#
-# describe Lesson do
-#   it { should validate_presence_of :description }
-#   it { should belong_to :post }
-# end
+require 'rails_helper'
+
+describe Comment do
+  it { should validate_presence_of :description }
+  it { should belong_to :post }
+end
