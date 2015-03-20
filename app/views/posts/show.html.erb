@@ -1,5 +1,7 @@
 
 <h1><%= @post.title %></h1>
+<h2>Posted on: <%= @post.date %></h2>
+
 <p><%= @post.body %></p>
 <% if @post.comments.any? %>
 <h4>Here are the comments for this post:</h4>

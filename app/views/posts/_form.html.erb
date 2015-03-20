@@ -3,6 +3,8 @@
 <%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
   <%= f.label :body %>
   <%= f.text_field :body, size: "40x20"  %>
   <%= f.submit "Submit Your Post" %>
