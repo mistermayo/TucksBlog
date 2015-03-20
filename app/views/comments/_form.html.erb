@@ -1,0 +1,7 @@
+<%= render "layouts/errors", :object => @comment %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description, size: "40x15" %><br>
+  <%= f.submit %>
+<% end %>
