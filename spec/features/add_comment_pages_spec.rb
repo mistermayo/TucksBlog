@@ -1,20 +1,18 @@
 require 'rails_helper'
 
-describe "the add a post process" do
-  it "adds a new post" do
+describe "the add a comment process" do
+  it "adds a new comment" do
     visit posts_path
-    click_on 'Add a new post'
-    fill_in 'Title', :with => 'How I Quit My Job'
-    fill_in 'Body', :with => 'Happy days!'
+    click_on 'Add a new comment'
+    fill_in 'Description', :with => 'Capybara is rough times'
     click_on 'Submit Your Post'
     expect(page).to have_content 'Posts'
   end
 
   it "gives error when no name is entered" do
     visit root_path
-    click_on 'Add a new post'
+    click_on 'Add a new comment'
     fill_in 'Title', :with => ''
-    fill_in 'Body', :with => '!'
     click_on 'Submit Your Post'
     expect(page).to have_content 'errors'
   end
