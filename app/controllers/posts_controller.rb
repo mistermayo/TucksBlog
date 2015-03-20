@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     if @post.save
+      flash[:notice] = "Posted Sucessfully!!"
       redirect_to posts_path
     else
       render :new
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "Smell you later, post."
     redirect_to posts_path
   end
 
