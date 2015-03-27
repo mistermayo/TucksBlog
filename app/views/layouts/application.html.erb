@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TucksBlog</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 </head>
 <body>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-12 center">
-        <h1>Tucks Blog Site</h1>
-        <hr>
+      <div id="site-title" class="col-md-6 left">
+        <h1>Tucker's Blog Site</h1>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <%= yield %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 center">
-        <%= flash[:alert] %>
-        <%= flash[:notice] %>
-      </div>
-    </div>
-  </div>
 
+      <div class="navbar col-md-6 right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+        <p>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </p>
+        <%= yield %>
+    </div>
+
+  </div>
 </body>
+<footer>
+  <div class="container">
+    <p><%= link_to "Return to Homepage", posts_path %></p>
+  </div>
+</footer>
 </html>
