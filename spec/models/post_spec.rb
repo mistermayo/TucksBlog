@@ -5,5 +5,6 @@ describe Post do
   it { should validate_presence_of :body }
   it { should validate_presence_of :date }
 
+  it { should belong_to :user }
   it { should have_many :comments }
 end

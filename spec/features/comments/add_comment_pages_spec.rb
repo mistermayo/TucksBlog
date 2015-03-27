@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "the add a comment process" do
   it "adds a new comment" do
+    visit "/"
+    user = FactoryGirl.create(:user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on "Add a comment"
@@ -11,6 +13,8 @@ describe "the add a comment process" do
   end
 
   it "gives error when no description is entered" do
+    visit "/"
+    user = FactoryGirl.create(:user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on "Add a comment"

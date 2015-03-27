@@ -3,6 +3,9 @@ require 'rails_helper'
 describe "the edit a post process" do
 
   it "gives error when no title is entered" do
+    visit "/"
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on 'Edit'
@@ -14,6 +17,9 @@ describe "the edit a post process" do
   end
 
   it "gives error when no body is entered" do
+    visit "/"
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on 'Edit'
@@ -25,6 +31,9 @@ describe "the edit a post process" do
   end
 
   it "edits a post" do
+    visit "/"
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on 'Edit'
@@ -36,6 +45,9 @@ describe "the edit a post process" do
   end
 
   it "takes you to an edit post page" do
+    visit "/"
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     post = Post.create(:title => 'hole', :body => 'bob', :date => '2012-04-09 07:00:00')
     visit post_path(post)
     click_on 'Edit'

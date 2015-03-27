@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.all
   end
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :date, :body)
+    params.require(:post).permit(:title, :date, :body, :user_id)
   end
 end
