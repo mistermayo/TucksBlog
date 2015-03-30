@@ -17,6 +17,8 @@ Setup Instructional
 6. Open a browser window and type in 'localhost:3000'
 7. Enjoy this web app!
 
+To view live site go to "http://tuckers-blog-site.herokuapp.com"
+----------------------------------------------------------------
 License
 =======
 Tucker Mayo copyright 2015 GNY GPPL v2.0
