@@ -1,1 +1,4 @@
-  $('#edit_post_<%= @post.id %>').appendTo('#posts_list');
+$('#edit_form').after('<%= j render(@post) %>');
+$('#edit_form').remove();
+$('#shown_post pre').text("<%= @post.body %>")
+$('#shown_title').text("<%= @post.title %>")

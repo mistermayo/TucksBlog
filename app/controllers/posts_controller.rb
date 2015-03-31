@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all
     respond_to do |format|
@@ -7,7 +8,7 @@ class PostsController < ApplicationController
       format.json
     end
   end
-  
+
   def new
     @post = Post.new
   end
@@ -35,10 +36,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "Smell you later, post."
-    respond_to do |format|
-      format.html { redirect_to posts_path }
-      format.js
-    end
   end
 
   def update
@@ -48,8 +45,6 @@ class PostsController < ApplicationController
         format.html { redirect_to posts_path }
         format.js
       end
-    else
-      render :edit
     end
   end
 
