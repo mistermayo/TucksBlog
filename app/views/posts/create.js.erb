@@ -1,0 +1,4 @@
+$('#new_post').remove();
+$('#new_link').show();
+$('#posts-list').append("<%= j render(@post) %>");
+$('#edit_post_<%= @post.id %>').submitOnCheck();

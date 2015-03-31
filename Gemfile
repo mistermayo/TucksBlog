@@ -16,6 +16,7 @@ gem 'bootstrap_form'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'bootswatch-rails'
 gem 'devise'
+gem 'poltergeist'
 
 group :development, :test do
   gem 'byebug'

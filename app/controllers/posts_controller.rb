@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]  
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.all
   end
@@ -20,7 +20,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Posted Sucessfully!!"
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js
+      end
     else
       render :new
     end
@@ -30,13 +33,19 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "Smell you later, post."
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.js
+    end
   end
 
   def update
     @post = Post.find(params[:id])
     if @post.update(params[:post])
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js
+      end
     else
       render :edit
     end

@@ -1,6 +1,6 @@
 <h1>Blog Posts</h1>
 <p>
-  <%= link_to "Add a new post", new_post_path %>
+  <%= link_to "Add a new post", new_post_path, id: "new_link", remote: true %>
 </p>
 <ul>
   <% @posts.each do |post| %>
