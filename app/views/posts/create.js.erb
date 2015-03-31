@@ -1,4 +1,3 @@
 $('#new_post').remove();
 $('#new_link').show();
-$('#posts-list').append("<%= j render(@post) %>");
-$('#edit_post_<%= @post.id %>').submitOnCheck();
+$('#posts_list').prepend("<li><%= j link_to @post.title, post_path(@post) %></li>");

@@ -1,5 +1,1 @@
-<% if @post.complete? %>
-  $('#edit_post_<%= @post.id %>').appendTo('#complete_posts');
-<% else %>
-  $('#edit_post_<%= @post.id %>').appendTo('#incomplete_posts');
-<% end %>
+  $('#edit_post_<%= @post.id %>').appendTo('#posts_list');
