@@ -1,9 +1,13 @@
-
+<ul id = "fun"
 <div class="row">
   <div class="col-md-12">
     <pre class="chapter-text" style="white-space: pre-line;">
       <%= @comment.description %>
+      <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
+
       </pre>
     </div>
   </div>
+</ul>
+
 <p><%= link_to "Return to Post", post_path(@post) %></p>
