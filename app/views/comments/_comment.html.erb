@@ -1,0 +1,8 @@
+<li>
+  <%= link_to comment.description, post_comment_path(@post, comment) %> |
+  <%= link_to "Edit", edit_post_comment_path(@post, comment), id: "edit-comment", remote: true %> |
+  <%= link_to "Delete", post_comment_path(@post, comment),
+  :data => {:confirm => "Are you sure?",
+    :method => "delete"} %>
+
+</li>

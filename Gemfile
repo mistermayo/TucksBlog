@@ -9,13 +9,17 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'factory_girl_rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'bootswatch-rails'
+gem "factory_girl_rails", "~> 4.0"
+gem 'textacular', '~> 3.0'
+gem 'poltergeist'
 gem 'devise'
+gem 'rest-client'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'byebug'
@@ -23,13 +27,18 @@ group :development, :test do
   gem 'spring'
   gem 'quiet_assets'
   gem 'pry'
+  gem "letter_opener"
+  gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :test do
   gem 'capybara'
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

@@ -1,32 +1,9 @@
-<div class="row">
-  <div class="col-md-12">
-    <h1><%= @post.title %></h1>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-md-12">
     <pre class="chapter-text" style="white-space: pre-line;">
-      <% if @post.comments.any? %>
-        <h4>Here are the comments for this post:</h4>
-        <ul>
-          <% @post.comments.each do |comment| %>
-            <%= link_to comment.description, post_comment_path(@post, comment) %>
-        </ul>
-       <% end %>
+      <%= @comment.description %>
       </pre>
     </div>
   </div>
-
-    <% else %>
-
-<div class="row">
-  <div class="col-md-12 center">
-    <p>There are no comments yet!</p>
-    <% end %>
-
-    <p><%= link_to "Add a comment", new_post_comment_path(@post) %></p>
-
-    <p><%= link_to "Return to Post", post_path(@post) %></p>
-  </div>
-</div>
+<p><%= link_to "Return to Post", post_path(@post) %></p>
