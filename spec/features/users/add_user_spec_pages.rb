@@ -4,6 +4,7 @@ describe "the creating a new user process" do
   it "will add a new user" do
     visit '/'
     click_link 'Sign Up'
+    fill_in 'Number', with: '4154105984'
     fill_in 'Email', with: 'foo@foo.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
